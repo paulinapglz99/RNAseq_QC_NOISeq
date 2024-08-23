@@ -1,0 +1,77 @@
+Aug-20 22:47:14.733 [main] DEBUG nextflow.cli.Launcher - $> nextflow run run_qc.nf
+Aug-20 22:47:14.836 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
+Aug-20 22:47:14.861 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/paulinapg/.nextflow/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
+Aug-20 22:47:14.874 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-20 22:47:14.875 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-20 22:47:14.880 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-20 22:47:14.896 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-20 22:47:14.972 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Aug-20 22:47:14.993 [main] DEBUG nextflow.cli.CmdRun - Launching `run_qc.nf` [condescending_lalande] DSL2 - revision: 502d1d5c48
+Aug-20 22:47:14.996 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-20 22:47:14.996 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-20 22:47:15.075 [main] DEBUG nextflow.Session - Session UUID: 38b4419e-2957-4b0f-bf4d-4f7f3dc83673
+Aug-20 22:47:15.076 [main] DEBUG nextflow.Session - Run name: condescending_lalande
+Aug-20 22:47:15.077 [main] DEBUG nextflow.Session - Executor pool size: 80
+Aug-20 22:47:15.087 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-20 22:47:15.097 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=240; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-20 22:47:15.130 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.04.4 build 5917
+  Created: 01-08-2024 07:05 UTC 
+  System: Linux 5.15.0-118-generic
+  Runtime: Groovy 4.0.21 on OpenJDK 64-Bit Server VM 11.0.24+8-post-Ubuntu-1ubuntu322.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 2645564@keter [10.0.13.50]
+  CPUs: 80 - Mem: 1006.6 GB (352.3 GB) - Swap: 16 GB (16 GB)
+Aug-20 22:47:15.157 [main] DEBUG nextflow.Session - Work-dir: /datos/home/paulinapg/redesROSMAP/QC_nextflow/work [zfs]
+Aug-20 22:47:15.158 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /datos/home/paulinapg/redesROSMAP/QC_nextflow/bin
+Aug-20 22:47:15.227 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-20 22:47:15.243 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-20 22:47:15.291 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-20 22:47:15.303 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 81; maxThreads: 1000
+Aug-20 22:47:15.368 [main] DEBUG nextflow.Session - Session start
+Aug-20 22:47:16.090 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-20 22:47:16.104 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/paulinapg/.nextflow/secrets/store.json
+Aug-20 22:47:16.113 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@733ec58b] - activable => nextflow.secret.LocalSecretsProvider@733ec58b
+Aug-20 22:47:16.272 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_f7d1d9e1751e3b29: /datos/home/paulinapg/redesROSMAP/QC_nextflow/run_qc.nf
+Aug-20 22:47:16.272 [main] DEBUG nextflow.Session - Session aborted -- Cause: Process `rna_qc_noiseq` declares 2 input channels but 1 were specified
+Aug-20 22:47:16.293 [main] DEBUG nextflow.Session - The following nodes are still active:
+  [operator] combine
+  [operator] filter
+
+Aug-20 22:47:16.301 [main] ERROR nextflow.cli.Launcher - Process `rna_qc_noiseq` declares 2 input channels but 1 were specified
+nextflow.exception.ScriptRuntimeException: Process `rna_qc_noiseq` declares 2 input channels but 1 were specified
+	at nextflow.script.ProcessDef.run(ProcessDef.groovy:175)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:103)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:391)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:330)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_f7d1d9e1751e3b29$_runScript_closure2$_closure4.doCall(Script_f7d1d9e1751e3b29:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:204)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:188)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:198)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:209)
+	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:243)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:138)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:372)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:657)

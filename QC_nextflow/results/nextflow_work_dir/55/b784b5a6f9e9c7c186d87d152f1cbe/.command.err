@@ -1,0 +1,43 @@
+Rows: 125 Columns: 42
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (19): specimenID, platform, libraryPrep, libraryPreparationMethod, readS...
+dbl (18): RIN, sequencingBatch, readLength, BrodmannArea, msex, educ, race, ...
+lgl  (5): libraryBatch, isStranded, isPostMortem, exclude, excludeReason
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning message:
+There was 1 warning in `summarize()`.
+ℹ In argument: `across(everything(), median, na.rm = TRUE)`.
+ℹ In group 1: `feature = "ENSG00000002586"`.
+Caused by warning:
+! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+Supply arguments directly to `.fns` through an anonymous function instead.
+
+  # Previously
+  across(a:b, mean, na.rm = TRUE)
+
+  # Now
+  across(a:b, \(x) mean(x, na.rm = TRUE)) 
+Error in `dplyr::select()`:
+! Can't select columns past the end.
+ℹ Location 1 doesn't exist.
+ℹ There are only 0 columns.
+Backtrace:
+     ▆
+  1. ├─counts %>% ...
+  2. ├─dplyr::select(., 1, intersect(colnames(counts), factors$specimenID))
+  3. ├─dplyr:::select.data.frame(., 1, intersect(colnames(counts), factors$specimenID))
+  4. │ └─tidyselect::eval_select(expr(c(...)), data = .data, error_call = error_call)
+  5. │   └─tidyselect:::eval_select_impl(...)
+  6. │     ├─tidyselect:::with_subscript_errors(...)
+  7. │     │ └─base::withCallingHandlers(...)
+  8. │     └─tidyselect:::vars_select_eval(...)
+  9. │       └─tidyselect:::loc_validate(pos, vars, call = error_call)
+ 10. │         └─vctrs::vec_as_location(pos, n = length(vars), call = call)
+ 11. └─vctrs (local) `<fn>`()
+ 12.   └─vctrs:::stop_subscript_oob(...)
+ 13.     └─vctrs:::stop_subscript(...)
+ 14.       └─rlang::abort(...)
+Execution halted

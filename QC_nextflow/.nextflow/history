@@ -1,0 +1,16 @@
+2024-08-20 22:05:14	-	extravagant_dalembert	-	0554ef372c86682adb16e8cafc24c019	b1d284e9-751f-49c9-bbd1-2f2cb801d526	nextflow run run_qc.nf
+2024-08-20 22:15:56	-	awesome_euclid	-	6ec3f2b723d41c9ac654338c6e0d3126	30cc3885-4963-4334-80f5-2b6e8fb08a47	nextflow run run_qc.nf
+2024-08-20 22:16:43	-	serene_heisenberg	-	57a2f9038eb947d0817d71d487175918	0bcf3ec7-229c-423c-aaaa-62d30a14b073	nextflow run run_qc.nf
+2024-08-20 22:22:21	-	sharp_bernard	-	6ec3f2b723d41c9ac654338c6e0d3126	dc40232f-5410-492c-b081-8d270d5b58bd	nextflow run run_qc.nf
+2024-08-20 22:23:28	-	grave_hypatia	-	23768b2647830d95dcdadc2d2ccca5b4	8e93e31a-618d-4404-abe2-cdb030745394	nextflow run run_qc.nf
+2024-08-20 22:24:18	-	fabulous_mclean	-	cbc1bf539c73be40f74782fbee2d539b	bb6bae1c-f610-44b5-a3d1-f6e1a8cf922f	nextflow run run_qc.nf
+2024-08-20 22:47:15	-	condescending_lalande	-	502d1d5c48e8e3614a112063adedb63f	38b4419e-2957-4b0f-bf4d-4f7f3dc83673	nextflow run run_qc.nf
+2024-08-20 22:51:51	-	voluminous_bhabha	-	73ce003ffe1a91cc61f96d06511cdc8e	83831d01-b19e-4cfe-82e3-18ccf4b6c7c4	nextflow run run_qc.nf
+2024-08-22 23:26:23	-	irreverent_meninsky	-	921b276aa667d880975729e9f1150673	8acd6d60-6db5-4f01-9bb0-19f35fb74c02	nextflow run main.nf
+2024-08-22 23:33:28	-	boring_pasteur	-	921b276aa667d880975729e9f1150673	0cf4dbe1-59ce-4bb8-bc66-4e74a316e36e	nextflow run main.nf
+2024-08-22 23:35:17	-	tender_noether	-	921b276aa667d880975729e9f1150673	cd05cc55-e4a6-41dd-a16c-cdf9bd2bba8d	nextflow run main.nf
+2024-08-22 23:36:00	-	sick_mayer	-	921b276aa667d880975729e9f1150673	583918b7-09f2-4291-a6a3-96920164e2d0	nextflow run main.nf
+2024-08-22 23:37:36	-	maniac_bhabha	-	aeeabf59169a15724637225110d55e8b	354e7731-654a-426e-a252-2383abab5e9c	nextflow run main.nf
+2024-08-22 23:37:59	-	special_pesquet	-	7e0b5bfff60823d7b4f21cc18b06480a	53aeb6d3-175f-4f2a-9d33-d0bb3b303122	nextflow run main.nf
+2024-08-22 23:40:11	1.8s	hungry_celsius	ERR	7e0b5bfff60823d7b4f21cc18b06480a	a20c88a0-b76f-4d28-b607-29d5c10a8033	nextflow run main.nf
+2024-08-23 00:31:19	20.4s	trusting_bose	ERR	7e0b5bfff60823d7b4f21cc18b06480a	d552d282-9a35-4e00-991a-34707e775732	nextflow run main.nf

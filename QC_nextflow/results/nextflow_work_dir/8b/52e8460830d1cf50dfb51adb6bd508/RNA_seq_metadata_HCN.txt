@@ -1,0 +1,1 @@
+/datos/home/paulinapg/redesROSMAP/QC_nextflow/metadata/RNA_seq_metadata_HCN.txt
