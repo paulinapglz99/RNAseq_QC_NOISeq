@@ -14,3 +14,5 @@
 2024-08-22 23:37:59	-	special_pesquet	-	7e0b5bfff60823d7b4f21cc18b06480a	53aeb6d3-175f-4f2a-9d33-d0bb3b303122	nextflow run main.nf
 2024-08-22 23:40:11	1.8s	hungry_celsius	ERR	7e0b5bfff60823d7b4f21cc18b06480a	a20c88a0-b76f-4d28-b607-29d5c10a8033	nextflow run main.nf
 2024-08-23 00:31:19	20.4s	trusting_bose	ERR	7e0b5bfff60823d7b4f21cc18b06480a	d552d282-9a35-4e00-991a-34707e775732	nextflow run main.nf
+2024-08-26 18:31:03	-	amazing_banach	-	7e0b5bfff60823d7b4f21cc18b06480a	09f5d2fd-6c9a-44f9-8fb4-f7020e5471b2	nextflow run main.nf
+2024-08-26 18:36:40	-	goofy_gauss	-	7e0b5bfff60823d7b4f21cc18b06480a	0b7278c1-f132-40d1-883f-8e11e1d9f47d	nextflow run main.nf

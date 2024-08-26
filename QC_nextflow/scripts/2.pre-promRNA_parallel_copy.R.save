@@ -181,7 +181,7 @@ dim(counts)
 
 #Annotation with ensembl --- ---
 
-cat("Annotation with ensembl\n")
+cat("Annotation with ensembl")
 
 #Generate mart object
 
@@ -218,7 +218,7 @@ mygc <- setNames(myannot$percentage_gene_gc_content, myannot$feature)
 mybiotype <-setNames(myannot$gene_biotype, myannot$feature)
 
 #Create NOISeq object
-cat("Create NOIseq object\n")
+cat("Create NOIseq object")
 
 noiseqData <- NOISeq::readData(data = counts,
                                factors = factors,           #variables indicating the experimental group for each sample
@@ -227,7 +227,7 @@ noiseqData <- NOISeq::readData(data = counts,
                                length =  mylength)          #gene length
 
 # 0) Diagnostic of data
-cat(" Diagnostic of data\n")
+cat(" Diagnostic of data")
 
 #each sample "s" is compared to a reference "r" (which can be arbitrarily chosen).
 #by computing M values=log2(counts = countsr). 
@@ -236,7 +236,6 @@ cat(" Diagnostic of data\n")
 #If the median of M values for each comparison is not in the CI, the deviation
 # of the sample is significant, therefore, normalization is needed 
 #"cd" means "Cumulative Distribution."
-cat("My cd, slow process \n")
 
 mycd <- dat(noiseqData, type = "cd", norm = F) #slow
 
@@ -245,7 +244,6 @@ mycd <- dat(noiseqData, type = "cd", norm = F) #slow
 
 #[1] "Diagnostic test: FAILED. Normalization is required to correct this bias."
 
-cat("NOIseq Diagnostic test\n")
 table(mycd@dat$DiagnosticTest[,  "Diagnostic Test"])
 
 #1)check expression bias for counts
@@ -254,14 +252,14 @@ table(mycd@dat$DiagnosticTest[,  "Diagnostic Test"])
 #sample independently and in at least one of the samples (total). 
 
 #Use a same factor variable to all bias detection
-cat("MyCountsbio\n")
+cat("mycountsbio")
 
 mycountsbio <- dat(noiseqData, 
                    type =  "countsbio",  
                    norm = F,      #T when already normalized counts as input
                    factor = NULL) #When NULL, all factors are considered
 #Plots
-cat("Counts Original plot")
+
 png("CountsOri.png")
 explo.plot(mycountsbio,
            plottype = "boxplot", #type of plot
@@ -269,7 +267,8 @@ explo.plot(mycountsbio,
 dev.off()
 
 #2)check for low count genes
-cat("Low counts original plot\n")
+cat("Low counts original")
+
 png("lowcountsOri.png")
 explo.plot(mycountsbio,
            plottype = "barplot",
@@ -279,9 +278,9 @@ dev.off()
 #3)check for transcript composition bias
 
 #Plot for Mvalues
-cat("Mvalues Original plot\n")
+cat("Mvalues Original")
 
-png("MvaluesOri.png")
+png("results/MvaluesOri.png")
 explo.plot(mycd,samples=sample(1:100,10))
 dev.off()
 
@@ -290,13 +289,12 @@ dev.off()
 #A cubic spline regression model is fitted. Both the model p-value and the coefficient
 # of determination (R2) are shown. If the model p-value is significant and R2 value is
 # high (more than 70%), the expression depends on the feature
-cat("CG content bias")
 
 myGCcontent <- dat(noiseqData,
                    k = 0,            #A feature is considered to be detected if the corresponding number of read counts is > k. 
                    type = "GCbias", 
                    factor = NULL)
-cat("GC bias original plot")
+
 png("GCbiasOri.png",width=1000)
 explo.plot(myGCcontent,
            samples = 1:12,   
@@ -306,7 +304,6 @@ dev.off()
 #The GC-content of each gene does not change from sample to sample, so it can be expected to
 #have little effect on differential expression analyses to a first approximation
 
-cat("Length bias\n")
 mylengthbias <- dat(noiseqData, 
                     k = 0,
                     type = "lengthbias",
@@ -315,7 +312,7 @@ mylengthbias <- dat(noiseqData,
 #[1] "Warning: 110 features with 0 counts in all samples are to be removed for this analysis."
 
 #Plot length bias
-cat("Length bias original plot")
+
 png("lengthbiasOri.png", width=1000)
 explo.plot(mylengthbias, 
            samples = 1:12, 
@@ -324,18 +321,14 @@ dev.off()
 
 #PCA pre-QC --- ---
 
-cat("PCA pre-QC\n")
-
 pca.pre <- pca(counts, factors, title = "PCA Scatterplot coloured by sequencing batch - preQC", 
                save_plot = TRUE, filename = "PCA_plot_preQC.png")
 
 # Acceder al gráfico y mostrarlo si es necesario
-png("pca_preqc.png")
 pca.pre$plot
-dev.off()
 
 #################SOLVE BIASES###################################
-cat("-----SOLVE BIASES------")
+
 #1) filter low count genes.
 #CPM=(counts/fragments sequenced)*one million.
 #Filtering those genes with average CPM below 1, would be different
@@ -343,8 +336,6 @@ cat("-----SOLVE BIASES------")
 
 #Filter Genes By Expression Level
 #Determine which genes have sufficiently large counts to be retained in a statistical analysis.
-
-cat("Filter low count genes by CPM")
 
 countMatrixFiltered <- filtered.data(counts,
                                      factor = "ceradsc",       #using all factors
@@ -368,19 +359,19 @@ countMatrixFiltered <- countMatrixFiltered[rownames(countMatrixFiltered) %in% my
 dim(countMatrixFiltered)
 
 #Feature data
-cat("Feature data")
+
 featureData <-  data.frame("feature" = rownames(countMatrixFiltered)) %>% 
   left_join(myannot, by = "feature")  %>% column_to_rownames(var = "feature")
 dim(featureData)
 
 #Pheno data
-cat("Pheno data")
+
 phenoData <- data.frame("specimenID" = colnames(countMatrixFiltered)) %>% 
   left_join(factors, by = "specimenID") %>% column_to_rownames(var = "specimenID")
 dim(phenoData)
 
 ##Create EDA object --- --
-cat("EDA object")
+
 mydataEDA <- newSeqExpressionSet(
   counts = as.matrix(countMatrixFiltered),
   featureData = featureData,
@@ -393,7 +384,6 @@ mydataEDA <- newSeqExpressionSet(
 #order for less bias
 
 #for gc content
-cat("Correct GC% bias")
 gcFull <- withinLaneNormalization(mydataEDA, 
                                   "percentage_gene_gc_content",
                                   which = "full")#corrects GC bias 
@@ -405,7 +395,6 @@ gcFull <- withinLaneNormalization(mydataEDA,
 
 # Normalization --- ---
 #TMM normalization adjusts library sizes based on the assumption that most genes are not differentially expressed.
-cat("Normalization")
 
 norm_count <- NOISeq::tmm(normCounts(gcFull),
                           long = 1000,  # If long == 1000, no length correction is applied (no matter the value of parameter lc). 
@@ -415,31 +404,28 @@ norm_count <- NOISeq::tmm(normCounts(gcFull),
 noiseqData_norm_count <- NOISeq::readData(data = norm_count, 
                                           factors = factors)
 
-
 #cd Diagnostic test for length and gc correction
-cat("cd Diagnostic test for length and GC bias")
+
 mycd_lessbias <- NOISeq::dat(noiseqData_norm_count,
                              type = "cd",
                              norm = TRUE)
 
 #Table diagnostic
-cat("Table diagnostic")
+
 table(mycd_lessbias@dat$DiagnosticTest[,  "Diagnostic Test"])
 
 #Solve batch effect --- --- 
-cat("Solve batch effect")
+
 lessbatch <- ComBat_seq(counts = exprs(noiseqData_norm_count), batch = factors$sequencingBatch)
 
 #############################FINAL QUALITY CHECK#######################################################
-cat("PCA post QC")
+
 pca.post <- pca(lessbatch, factors = factors, 
                 title = "PCA Scatterplot coloured by library batch, post batch correction",
                 save_plot = TRUE, filename = "PCA_plot_post.png")
-png("pca_postqc.png")
-pca.post$plot
-dev.off() 
+
 #Create new noiseq object with normalized counts 
-cat("NOIseq data final")
+
 noiseqData_final <- NOISeq::readData(lessbatch,
                                      factors = factors,
                                      gc = mygc,
@@ -447,14 +433,14 @@ noiseqData_final <- NOISeq::readData(lessbatch,
                                      length = mylength)
 
 #Check for bias with renormalized
-cat("My countsbio final")
+
 mycountsbio_final <- dat(noiseqData_final, 
                          type = "countsbio", 
                          norm=T, 
                          factor = NULL)
 
 #Plot final plots
-cat("Counts final plot")
+
 png("CountsFinal.png")
 explo.plot(mycountsbio_final,
            plottype = "boxplot",
@@ -462,7 +448,7 @@ explo.plot(mycountsbio_final,
 dev.off()
 
 #Low counts 
-cat("Low counts final plot")
+
 png("lowcountsFinal.png")
 explo.plot(mycountsbio_final,
            plottype = "barplot",
@@ -470,14 +456,14 @@ explo.plot(mycountsbio_final,
 dev.off()
 
 #Plot for Mvalues
-cat("M values final plot")
+
 png("MvaluesFinal.png")
 explo.plot(mycd_lessbias,
            samples=sample(1:ncol(counts),10))
 dev.off()
 
 #calculate final GC bias
-cat("GC content final")
+
 myGCcontent_final <- dat(noiseqData_final,
                          k = 0, 
                          type = "GCbias", 
@@ -486,7 +472,6 @@ myGCcontent_final <- dat(noiseqData_final,
 
 #Plot final GC bias
 
-cat("GC bias final plot")
 png("GCbiasFinal.png",width=1000)
 explo.plot(myGCcontent_final, 
            plottype = "boxplot",
@@ -494,7 +479,7 @@ explo.plot(myGCcontent_final,
 dev.off()
 
 #calculate final length bias
-cat("Length bias final")
+
 mylenBias <- dat(noiseqData_final, 
                  k = 0, 
                  type = "lengthbias", 
@@ -502,18 +487,18 @@ mylenBias <- dat(noiseqData_final,
                  norm=T)
 
 #Plot final length bias
-cat("Length bias final plot")
+
 png("lengthbiasFinal.png",width=1000)
 explo.plot(mylenBias, samples = 1:12)
 dev.off()
 
 #Final count matrix --- ---
-cat("Final counts matrix...")
+
 final_counts <- lessbatch
 dim(final_counts)
 
 #Final metadata --- ---
-cat("Final metadata...")
+
 final_metadata <- data.frame(
   "specimenID" = colnames(final_counts))   
 
@@ -522,16 +507,15 @@ final_metadata <- final_metadata %>%
 dim(final_metadata)
 
 #Finally, save counts table --- ---
-cat("Save counts table")
+
 saveRDS(final_counts, file = "/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/DLFPC/full_counts/ROSMAP_RNAseq_filteredQC_counts_DLPFC.rds")
 
 #Save filtered metadata --- ---
-cat("Save filtered metadata")
+
 vroom::vroom_write(final_metadata, file ="/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/metadata/DLPFC/RNA_seq_metadata_filteredQC_DLPFC.txt")
 
 #Save annotation --- --- 
-cat("Save annotation file")
+
 vroom::vroom_write(myannot, file ="/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/metadata/DLPFC/RNA_seq_filteredQC_annotation_DLPFC.txt")
 
-cat("--- Quality control finished ---")
 #END
