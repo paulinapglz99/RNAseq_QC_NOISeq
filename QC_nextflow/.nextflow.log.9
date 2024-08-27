@@ -1,116 +1,142 @@
-Aug-22 23:26:23.115 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf
-Aug-22 23:26:23.288 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
-Aug-22 23:26:23.324 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/paulinapg/.nextflow/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
-Aug-22 23:26:23.343 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Aug-22 23:26:23.345 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Aug-22 23:26:23.351 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Aug-22 23:26:23.374 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Aug-22 23:26:23.471 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Aug-22 23:26:23.495 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [irreverent_meninsky] DSL2 - revision: 921b276aa6
-Aug-22 23:26:23.497 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Aug-22 23:26:23.498 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Aug-22 23:26:23.580 [main] DEBUG nextflow.Session - Session UUID: 8acd6d60-6db5-4f01-9bb0-19f35fb74c02
-Aug-22 23:26:23.581 [main] DEBUG nextflow.Session - Run name: irreverent_meninsky
-Aug-22 23:26:23.581 [main] DEBUG nextflow.Session - Executor pool size: 80
-Aug-22 23:26:23.592 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Aug-22 23:26:23.601 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=240; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Aug-22 23:26:23.642 [main] DEBUG nextflow.cli.CmdRun - 
+Aug-26 23:24:45.186 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf
+Aug-26 23:24:45.412 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.04.4
+Aug-26 23:24:45.457 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/paulinapg/.nextflow/plugins; core-plugins: nf-amazon@2.5.3,nf-azure@1.6.1,nf-cloudcache@0.4.1,nf-codecommit@0.2.1,nf-console@1.1.3,nf-ga4gh@1.3.0,nf-google@1.13.2-patch1,nf-tower@1.9.1,nf-wave@1.4.2-patch1
+Aug-26 23:24:45.483 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-26 23:24:45.486 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-26 23:24:45.494 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-26 23:24:45.522 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-26 23:24:45.573 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/nextflow.config
+Aug-26 23:24:45.579 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/nextflow.config
+Aug-26 23:24:45.648 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/paulinapg/.nextflow/secrets/store.json
+Aug-26 23:24:45.655 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1813f3e9] - activable => nextflow.secret.LocalSecretsProvider@1813f3e9
+Aug-26 23:24:45.668 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-26 23:24:46.852 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Aug-26 23:24:46.887 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [wise_elion] DSL2 - revision: 6b41fbbde3
+Aug-26 23:24:46.891 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-26 23:24:46.891 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-26 23:24:47.018 [main] DEBUG nextflow.Session - Session UUID: ff21b35c-3a97-405b-b319-b79064f64f8c
+Aug-26 23:24:47.019 [main] DEBUG nextflow.Session - Run name: wise_elion
+Aug-26 23:24:47.020 [main] DEBUG nextflow.Session - Executor pool size: 80
+Aug-26 23:24:47.040 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-26 23:24:47.054 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=240; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-26 23:24:47.102 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 24.04.4 build 5917
   Created: 01-08-2024 07:05 UTC 
   System: Linux 5.15.0-118-generic
   Runtime: Groovy 4.0.21 on OpenJDK 64-Bit Server VM 11.0.24+8-post-Ubuntu-1ubuntu322.04
   Encoding: UTF-8 (UTF-8)
-  Process: 236423@keter [10.0.13.50]
-  CPUs: 80 - Mem: 1006.6 GB (287.9 GB) - Swap: 16 GB (549.8 MB)
-Aug-22 23:26:23.671 [main] DEBUG nextflow.Session - Work-dir: /datos/home/paulinapg/redesROSMAP/QC_nextflow/work [zfs]
-Aug-22 23:26:23.672 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /datos/home/paulinapg/redesROSMAP/QC_nextflow/bin
-Aug-22 23:26:23.688 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Aug-22 23:26:23.747 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Aug-22 23:26:23.789 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Aug-22 23:26:23.802 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 81; maxThreads: 1000
-Aug-22 23:26:23.881 [main] DEBUG nextflow.Session - Session start
-Aug-22 23:26:24.516 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Aug-22 23:26:24.530 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/paulinapg/.nextflow/secrets/store.json
-Aug-22 23:26:24.538 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6e31d989] - activable => nextflow.secret.LocalSecretsProvider@6e31d989
-Aug-22 23:26:24.573 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_e286da0f3d2dc2ef: /datos/home/paulinapg/redesROSMAP/QC_nextflow/main.nf
-Aug-22 23:26:24.585 [main] ERROR nextflow.cli.Launcher - Module compilation error
-- file : /home/paulinapg/redesROSMAP/QC_nextflow/run_qc.nf
-- cause: Unexpected character: '│' @ line 7, column 71.
-                                 │2 paulina
-                                 ^
+  Process: 2795363@keter [10.0.13.50]
+  CPUs: 80 - Mem: 1006.6 GB (338.8 GB) - Swap: 16 GB (1.4 GB)
+Aug-26 23:24:47.149 [main] DEBUG nextflow.Session - Work-dir: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/results/nextflow_work_dir [zfs]
+Aug-26 23:24:47.151 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/bin
+Aug-26 23:24:47.174 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-26 23:24:47.199 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-26 23:24:47.259 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-26 23:24:47.282 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 81; maxThreads: 1000
+Aug-26 23:24:47.400 [main] DEBUG nextflow.Session - Session start
+Aug-26 23:24:47.841 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-26 23:24:48.156 [main] INFO  nextflow.script.BaseScript -  
+Aug-26 23:24:48.157 [main] INFO  nextflow.script.BaseScript - RNA-seq quality control
+Aug-26 23:24:48.158 [main] INFO  nextflow.script.BaseScript - Nombre del proyecto: Prueba_1
+Aug-26 23:24:48.159 [main] INFO  nextflow.script.BaseScript - Información de los datos: data_info.tsv
+Aug-26 23:24:48.160 [main] INFO  nextflow.script.BaseScript - Directorio de salida: results//out
+Aug-26 23:24:48.160 [main] INFO  nextflow.script.BaseScript -  
+Aug-26 23:24:48.539 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Aug-26 23:24:48.540 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-26 23:24:48.553 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-26 23:24:48.566 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=80; memory=1006.6 GB; capacity=10; pollInterval=100ms; dumpInterval=5m
+Aug-26 23:24:48.571 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Aug-26 23:24:48.701 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: rna_qc_noiseq
+Aug-26 23:24:48.702 [main] DEBUG nextflow.Session - Igniting dataflow network (2)
+Aug-26 23:24:48.715 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > rna_qc_noiseq
+Aug-26 23:24:48.719 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_f856154b6add68af: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/main.nf
+  Script_c84023327580932a: /home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/run_qc.nf
+Aug-26 23:24:48.722 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-26 23:24:48.722 [main] DEBUG nextflow.Session - Session await
+Aug-26 23:24:49.143 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-26 23:24:49.148 [Task submitter] INFO  nextflow.Session - [32/d11766] Submitted process > rna_qc_noiseq (5)
+Aug-26 23:24:49.164 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-26 23:24:49.165 [Task submitter] INFO  nextflow.Session - [56/39afa8] Submitted process > rna_qc_noiseq (1)
+Aug-26 23:24:49.178 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-26 23:24:49.179 [Task submitter] INFO  nextflow.Session - [7d/51e0b7] Submitted process > rna_qc_noiseq (4)
+Aug-26 23:24:49.188 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-26 23:24:49.190 [Task submitter] INFO  nextflow.Session - [b2/643e21] Submitted process > rna_qc_noiseq (2)
+Aug-26 23:24:49.200 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-26 23:24:49.210 [Task submitter] INFO  nextflow.Session - [a9/5bf191] Submitted process > rna_qc_noiseq (3)
+Aug-26 23:26:19.041 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: rna_qc_noiseq (1); status: COMPLETED; exit: 1; error: -; workDir: /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/results/nextflow_work_dir/56/39afa86bb5001af30e68a7035897dc]
+Aug-26 23:26:19.043 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=240; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Aug-26 23:26:19.059 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=rna_qc_noiseq (1); work-dir=/datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/results/nextflow_work_dir/56/39afa86bb5001af30e68a7035897dc
+  error [nextflow.exception.ProcessFailedException]: Process `rna_qc_noiseq (1)` terminated with an error exit status (1)
+Aug-26 23:26:19.103 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'rna_qc_noiseq (1)'
 
-1 error
+Caused by:
+  Process `rna_qc_noiseq (1)` terminated with an error exit status (1)
 
-nextflow.exception.ScriptCompilationException: Module compilation error
-- file : /home/paulinapg/redesROSMAP/QC_nextflow/run_qc.nf
-- cause: Unexpected character: '│' @ line 7, column 71.
-                                 │2 paulina
-                                 ^
 
-1 error
+Command executed:
 
-	at nextflow.script.ScriptParser.parse0(ScriptParser.groovy:196)
-	at nextflow.script.ScriptParser.parse(ScriptParser.groovy:206)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:221)
-	at nextflow.script.IncludeDef.memoizedMethodPriv$loadModule0PathMapSession(IncludeDef.groovy:140)
-	at nextflow.script.IncludeDef.access$0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef$__clinit__closure2.doCall(IncludeDef.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-	at groovy.lang.Closure.call(Closure.java:433)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.lambda$call$0(Memoize.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:113)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.call(Memoize.java:136)
-	at nextflow.script.IncludeDef.loadModule0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef.load0(IncludeDef.groovy:112)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at Script_e286da0f3d2dc2ef.runScript(Script_e286da0f3d2dc2ef:8)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run0(BaseScript.groovy:159)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run(BaseScript.groovy:209)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
-	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:243)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:138)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:372)
-	at nextflow.cli.Launcher.run(Launcher.groovy:503)
-	at nextflow.cli.Launcher.main(Launcher.groovy:657)
-Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
-Script_3020e2d9c12ea479: 7: Unexpected character: '│' @ line 7, column 71.
-                                 │2 paulina
-                                 ^
+  Rscript /home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/scripts/2.pre-promRNA_parallel_copy.R ROSMAP_RNAseq_rawcounts_DLPFC.rds RNA_seq_metadata_DLPFC.txt
 
-1 error
+Command exit status:
+  1
 
-	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
-	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
-	at org.apache.groovy.parser.antlr4.AstBuilder.collectSyntaxError(AstBuilder.java:4753)
-	at org.apache.groovy.parser.antlr4.AstBuilder.createParsingFailedException(AstBuilder.java:4736)
-	at org.apache.groovy.parser.antlr4.AstBuilder.convertException(AstBuilder.java:254)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:228)
-	at org.apache.groovy.parser.antlr4.AstBuilder.buildAST(AstBuilder.java:262)
-	at org.apache.groovy.parser.antlr4.Antlr4ParserPlugin.buildAST(Antlr4ParserPlugin.java:58)
-	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
-	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
-	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658)
-	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:663)
-	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:373)
-	at groovy.lang.GroovyClassLoader.lambda$parseClass$2(GroovyClassLoader.java:316)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.compute(StampedCommonCache.java:163)
-	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.getAndPut(StampedCommonCache.java:154)
-	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:314)
-	at groovy.lang.GroovyShell.parseClass(GroovyShell.java:572)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:585)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:639)
-	at groovy.lang.GroovyShell.parse(GroovyShell.java:643)
-	at nextflow.script.ScriptParser.parse0(ScriptParser.groovy:175)
-	... 32 common frames omitted
+Command output:
+  Fix metadata[1] 1105   42
+  Fix counts[1] 60603  1142
+  [1] 60558  1142
+  [1] 60558  1106
+  set factors[1] 1105    4
+  [1] 60558  1105
+  Annotation with ensembl
+
+Command error:
+  Rows: 1141 Columns: 42
+  ── Column specification ────────────────────────────────────────────────────────
+  Delimiter: "\t"
+  chr (21): specimenID, platform, sequencingBatch, libraryPrep, libraryPrepara...
+  dbl (17): RIN, libraryBatch, readLength, msex, educ, race, spanish, apoe_gen...
+  lgl  (4): isStranded, BrodmannArea, isPostMortem, exclude
+  
+  ℹ Use `spec()` to retrieve the full column specification for this data.
+  ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  Fix metadata[1] 1105   42
+  Fix counts[1] 60603  1142
+  Warning message:
+  There was 1 warning in `summarize()`.
+  ℹ In argument: `across(everything(), median, na.rm = TRUE)`.
+  ℹ In group 1: `feature = "ENSG00000002586"`.
+  Caused by warning:
+  ! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+  Supply arguments directly to `.fns` through an anonymous function instead.
+  
+    # Previously
+    across(a:b, mean, na.rm = TRUE)
+  
+    # Now
+    across(a:b, \(x) mean(x, na.rm = TRUE)) 
+  [1] 60558  1142
+  [1] 60558  1106
+  set factors[1] 1105    4
+  [1] 60558  1105
+  Annotation with ensembl
+  Ensembl site unresponsive, trying asia mirror
+  Ensembl site unresponsive, trying useast mirror
+  Error in .chooseEnsemblMirror(mirror = mirror, http_config = http_config) : 
+    Unable to query any Ensembl site
+  Calls: useEnsembl -> .chooseEnsemblMirror
+  Execution halted
+
+Work dir:
+  /datos/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/results/nextflow_work_dir/56/39afa86bb5001af30e68a7035897dc
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Aug-26 23:26:19.160 [TaskFinalizer-1] DEBUG nextflow.Session - Session aborted -- Cause: Process `rna_qc_noiseq (1)` terminated with an error exit status (1)
+Aug-26 23:26:19.209 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Aug-26 23:26:19.216 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-26 23:26:19.216 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-26 23:26:19.231 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (4)
+Aug-26 23:26:19.271 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=4; succeedDuration=0ms; failedDuration=1m 30s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=5; peakCpus=5; peakMemory=0; ]
+Aug-26 23:26:19.332 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-26 23:26:19.360 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

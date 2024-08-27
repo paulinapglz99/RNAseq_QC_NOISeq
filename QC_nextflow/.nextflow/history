@@ -16,3 +16,19 @@
 2024-08-23 00:31:19	20.4s	trusting_bose	ERR	7e0b5bfff60823d7b4f21cc18b06480a	d552d282-9a35-4e00-991a-34707e775732	nextflow run main.nf
 2024-08-26 18:31:03	-	amazing_banach	-	7e0b5bfff60823d7b4f21cc18b06480a	09f5d2fd-6c9a-44f9-8fb4-f7020e5471b2	nextflow run main.nf
 2024-08-26 18:36:40	-	goofy_gauss	-	7e0b5bfff60823d7b4f21cc18b06480a	0b7278c1-f132-40d1-883f-8e11e1d9f47d	nextflow run main.nf
+2024-08-26 22:28:47	-	amazing_lovelace	-	7e0b5bfff60823d7b4f21cc18b06480a	ef3bf325-3cbf-42f1-8eef-2b18193da8af	nextflow run main.nf
+2024-08-26 22:31:19	1.8s	exotic_rosalind	ERR	badd535c92e17dc121f366b588fa8c5b	9954de38-4a45-46d5-88ef-a4a50d5d6100	nextflow run main.nf
+2024-08-26 22:32:44	14.6s	thirsty_coulomb	ERR	badd535c92e17dc121f366b588fa8c5b	444f36d1-0e69-4024-bf18-b27464a281c7	nextflow run main.nf
+2024-08-26 22:36:55	14.7s	lonely_hugle	ERR	6b41fbbde31cd043fbe0692de2c56fb4	87a14d10-da0a-4c5d-8e41-c5585cc45037	nextflow run main.nf
+2024-08-26 22:52:40	20.6s	berserk_mclean	ERR	6b41fbbde31cd043fbe0692de2c56fb4	f84a3d7f-e93e-4d64-a594-22ed3657b4f7	nextflow run main.nf
+2024-08-26 23:14:52	9m 27s	stupefied_bhaskara	ERR	6b41fbbde31cd043fbe0692de2c56fb4	c0c82eae-85ad-49c9-be52-c0b4d5945fb8	nextflow run main.nf
+2024-08-26 23:24:47	1m 32s	wise_elion	ERR	6b41fbbde31cd043fbe0692de2c56fb4	ff21b35c-3a97-405b-b319-b79064f64f8c	nextflow run main.nf
+2024-08-27 01:17:49	53.1s	small_laplace	ERR	6b41fbbde31cd043fbe0692de2c56fb4	47f608d7-d2d0-48dc-98b4-9f56a5c9b87b	nextflow run main.nf
+2024-08-27 01:18:56	1m 1s	tender_payne	ERR	6b41fbbde31cd043fbe0692de2c56fb4	1046ae6d-5790-4d32-8aa9-2d24d11f2602	nextflow run main.nf
+2024-08-27 01:22:11	2m 15s	sharp_caravaggio	ERR	6b41fbbde31cd043fbe0692de2c56fb4	367d66a8-ce03-4708-bcd5-497a5ce78a50	nextflow run main.nf
+2024-08-27 01:57:05	8m 14s	loquacious_marconi	ERR	6b41fbbde31cd043fbe0692de2c56fb4	1924900e-04a8-4d0f-8312-e000367a2501	nextflow run main.nf
+2024-08-27 02:20:42	13m 24s	sad_caravaggio	ERR	6b41fbbde31cd043fbe0692de2c56fb4	9c07df59-a288-44b3-be83-188dd90d0877	nextflow run main.nf
+2024-08-27 05:36:43	11m 58s	cheeky_noether	ERR	6b41fbbde31cd043fbe0692de2c56fb4	4600121a-a1da-412f-a0d8-c54918e69bca	nextflow run main.nf
+2024-08-27 18:50:06	2m 15s	sleepy_rubens	ERR	6b41fbbde31cd043fbe0692de2c56fb4	d8dc07c1-2c8c-4f73-bd9e-75fae3596b91	nextflow run main.nf
+2024-08-27 19:04:55	-	modest_aryabhata	-	6b41fbbde31cd043fbe0692de2c56fb4	d8dc07c1-2c8c-4f73-bd9e-75fae3596b91	nextflow run main.nf -resume
+2024-08-27 19:05:21	8m 17s	ridiculous_mcclintock	ERR	6b41fbbde31cd043fbe0692de2c56fb4	d8dc07c1-2c8c-4f73-bd9e-75fae3596b91	nextflow run main.nf -resume

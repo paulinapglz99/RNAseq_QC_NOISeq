@@ -1,0 +1,18 @@
+Rows: 125 Columns: 42
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (19): specimenID, platform, libraryPrep, libraryPreparationMethod, readS...
+dbl (18): RIN, sequencingBatch, readLength, BrodmannArea, msex, educ, race, ...
+lgl  (5): libraryBatch, isStranded, isPostMortem, exclude, excludeReason
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning messages:
+1: In plot.window(...) : "plottype" is not a graphical parameter
+2: In plot.xy(xy, type, ...) : "plottype" is not a graphical parameter
+3: In axis(side = side, at = at, labels = labels, ...) :
+  "plottype" is not a graphical parameter
+4: In axis(side = side, at = at, labels = labels, ...) :
+  "plottype" is not a graphical parameter
+5: In box(...) : "plottype" is not a graphical parameter
+6: In title(...) : "plottype" is not a graphical parameter

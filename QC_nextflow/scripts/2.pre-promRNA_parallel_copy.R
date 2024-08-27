@@ -37,14 +37,13 @@ set.seed(10)
 
 #Homogenize metadata for sex
 homogenize_exclude <- function(metadata) {
-  unique_values <- unique(metadata$exclude)
-  
-  if ("TRUE" %in% unique_values && any(is.na(unique_values))) {
-    # Caso 1: TRUE para excluir, NA para mantener
+  # Verificar si la columna 'exclude' tiene NA
+  if (any(is.na(metadata$exclude))) {
+    # Caso 1: Si hay NA, los NA se transforman a FALSE y los TRUE se mantienen
     metadata <- metadata %>% mutate(exclude = ifelse(is.na(exclude), FALSE, TRUE))
   } else {
-    # Caso 2: FALSE para mantener, TRUE para excluir
-    metadata <- metadata %>% mutate(exclude = ifelse(exclude == FALSE, FALSE, TRUE))
+    # Caso 2: Si no hay NA, asumir que la columna tiene FALSE y TRUE
+    metadata <- metadata %>% mutate(exclude = ifelse(exclude == TRUE, TRUE, FALSE))
   }
   
   return(metadata)
@@ -66,7 +65,7 @@ del_dupl <- function(counts) {
   repeated_rows <- repeated_rows[order(repeated_rows$feature),]
   repeated_rows <- repeated_rows %>%
     group_by(feature) %>%
-    summarize(across(everything(), median, na.rm = TRUE))
+    summarize(across(everything(), \(x) median(x, na.rm = TRUE)))
   
   # Eliminar las filas duplicadas y agregar las filas con la mediana calculada
   counts <- counts %>% filter(!feature %in% repeated_rows$feature)
@@ -197,7 +196,7 @@ myannot <- getBM(attributes = c("ensembl_gene_id",
                  mart = mart)
 
 #to have control
-colnames(myannot)[colnames(myannot) == "feature"] <- "ensembl_gene_id"
+colnames(myannot)[colnames(myannot) == "ensembl_gene_id"] <- "feature"
 #Add length column
 
 myannot$length <- abs(myannot$end_position-myannot$start_position)
@@ -205,7 +204,7 @@ dim(myannot)
 
 #Create NOISeq object bias detect and bias correction --- ---
 
-cat("For NOISeq, order of factors$specimenIDs and  colnames(coutns) must match")
+cat("For NOISeq, order of factors$specimenIDs and  colnames(counts) must match\n")
 identical(colnames(counts), factors$specimenID)
 #[1] TRUE
 
@@ -261,7 +260,7 @@ mycountsbio <- dat(noiseqData,
                    norm = F,      #T when already normalized counts as input
                    factor = NULL) #When NULL, all factors are considered
 #Plots
-cat("Counts Original plot")
+cat("Counts Original plot\n")
 png("CountsOri.png")
 explo.plot(mycountsbio,
            plottype = "boxplot", #type of plot
@@ -513,7 +512,7 @@ final_counts <- lessbatch
 dim(final_counts)
 
 #Final metadata --- ---
-cat("Final metadata...")
+cat("Final metadata...\n")
 final_metadata <- data.frame(
   "specimenID" = colnames(final_counts))   
 
@@ -522,16 +521,16 @@ final_metadata <- final_metadata %>%
 dim(final_metadata)
 
 #Finally, save counts table --- ---
-cat("Save counts table")
-saveRDS(final_counts, file = "/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/DLFPC/full_counts/ROSMAP_RNAseq_filteredQC_counts_DLPFC.rds")
+cat("Save counts table\n")
+saveRDS(final_counts, file = "ROSMAP_RNAseq_filteredQC_counts_DLPFC.rds")
 
 #Save filtered metadata --- ---
-cat("Save filtered metadata")
-vroom::vroom_write(final_metadata, file ="/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/metadata/DLPFC/RNA_seq_metadata_filteredQC_DLPFC.txt")
+cat("Save filtered metadata\n")
+vroom::vroom_write(final_metadata, file ="RNA_seq_metadata_filteredQC_DLPFC.txt")
 
 #Save annotation --- --- 
-cat("Save annotation file")
-vroom::vroom_write(myannot, file ="/datos/rosmap/data_by_counts/ROSMAP_counts/counts_by_tissue/metadata/DLPFC/RNA_seq_filteredQC_annotation_DLPFC.txt")
+cat("Save annotation file\n")
+vroom::vroom_write(myannot, file ="RNA_seq_filteredQC_annotation_DLPFC.txt")
 
 cat("--- Quality control finished ---")
 #END
