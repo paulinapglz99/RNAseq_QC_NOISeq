@@ -28,6 +28,7 @@ counts <- readRDS(counts)
 # Read metadata
 metadata <- vroom(metadata)
 
+
 #Seed --- ---
 
 set.seed(10)
@@ -183,8 +184,7 @@ cat("Annotation with ensembl\n")
 
 #Generate mart object
 
-mart <- useEnsembl("ensembl", 
-                   dataset="hsapiens_gene_ensembl")
+mart <- useEnsembl("ensembl", dataset="hsapiens_gene_ensembl")
 
 #We create myannot, with GC content, biotype, info for length & names per transcript
 
@@ -279,6 +279,7 @@ dev.off()
 
 #Plot for Mvalues
 cat("Mvalues Original plot\n")
+
 png("MvaluesOri.png")
 explo.plot(mycd,samples=sample(1:100,10))
 dev.off()
@@ -294,7 +295,7 @@ myGCcontent <- dat(noiseqData,
                    k = 0,            #A feature is considered to be detected if the corresponding number of read counts is > k. 
                    type = "GCbias", 
                    factor = NULL)
-cat("GC bias original plot\n")
+cat("GC bias original plot")
 png("GCbiasOri.png",width=1000)
 explo.plot(myGCcontent,
            samples = 1:12,   
@@ -313,7 +314,7 @@ mylengthbias <- dat(noiseqData,
 #[1] "Warning: 110 features with 0 counts in all samples are to be removed for this analysis."
 
 #Plot length bias
-cat("Length bias original plot")
+cat("Length bias original plot\n")
 png("lengthbiasOri.png", width=1000)
 explo.plot(mylengthbias, 
            samples = 1:12, 
@@ -333,7 +334,7 @@ pca.pre$plot
 dev.off()
 
 #################SOLVE BIASES###################################
-cat("-----SOLVE BIASES------\n")
+cat("-----SOLVE BIASES------")
 #1) filter low count genes.
 #CPM=(counts/fragments sequenced)*one million.
 #Filtering those genes with average CPM below 1, would be different
@@ -344,10 +345,8 @@ cat("-----SOLVE BIASES------\n")
 
 cat("Filter low count genes by CPM\n")
 
-x <- setNames(factors$ceradsc, factors$specimenID)
-
 countMatrixFiltered <- filtered.data(counts,
-                                     factor = x,       #using all factors
+                                     factor = "ceradsc",       #using all factors
                                      norm = F,            #counts are not normalized 
                                      method = 1,          #Method 1 (CPM) removes those features that have an average expression per condition less than cpm value and a coefficient of variation per condition higher than cv.cutoff (in percentage) in all the conditions
                                      cpm = 1,             #Cutoff for the counts per million value
@@ -393,7 +392,7 @@ mydataEDA <- newSeqExpressionSet(
 #order for less bias
 
 #for gc content
-cat("Correct GC% bias\n")
+cat("Correct GC% bias")
 gcFull <- withinLaneNormalization(mydataEDA, 
                                   "percentage_gene_gc_content",
                                   which = "full")#corrects GC bias 
@@ -405,7 +404,7 @@ gcFull <- withinLaneNormalization(mydataEDA,
 
 # Normalization --- ---
 #TMM normalization adjusts library sizes based on the assumption that most genes are not differentially expressed.
-cat("Normalization\n")
+cat("Normalization")
 
 norm_count <- NOISeq::tmm(normCounts(gcFull),
                           long = 1000,  # If long == 1000, no length correction is applied (no matter the value of parameter lc). 
@@ -417,21 +416,21 @@ noiseqData_norm_count <- NOISeq::readData(data = norm_count,
 
 
 #cd Diagnostic test for length and gc correction
-cat("cd Diagnostic test for length and GC bias\n")
+cat("cd Diagnostic test for length and GC bias")
 mycd_lessbias <- NOISeq::dat(noiseqData_norm_count,
                              type = "cd",
                              norm = TRUE)
 
 #Table diagnostic
-cat("Table diagnostic\n")
+cat("Table diagnostic")
 table(mycd_lessbias@dat$DiagnosticTest[,  "Diagnostic Test"])
 
 #Solve batch effect --- --- 
-cat("Solve batch effect\n")
+cat("Solve batch effect")
 lessbatch <- ComBat_seq(counts = exprs(noiseqData_norm_count), batch = factors$sequencingBatch)
 
 #############################FINAL QUALITY CHECK#######################################################
-cat("PCA post QC\n")
+cat("PCA post QC")
 pca.post <- pca(lessbatch, factors = factors, 
                 title = "PCA Scatterplot coloured by library batch, post batch correction",
                 save_plot = TRUE, filename = "PCA_plot_post.png")
@@ -439,7 +438,7 @@ png("pca_postqc.png")
 pca.post$plot
 dev.off() 
 #Create new noiseq object with normalized counts 
-cat("NOIseq data final\n")
+cat("NOIseq data final")
 noiseqData_final <- NOISeq::readData(lessbatch,
                                      factors = factors,
                                      gc = mygc,
@@ -447,14 +446,14 @@ noiseqData_final <- NOISeq::readData(lessbatch,
                                      length = mylength)
 
 #Check for bias with renormalized
-cat("My countsbio final\n")
+cat("My countsbio final")
 mycountsbio_final <- dat(noiseqData_final, 
                          type = "countsbio", 
                          norm=T, 
                          factor = NULL)
 
 #Plot final plots
-cat("Counts final plot\n")
+cat("Counts final plot")
 png("CountsFinal.png")
 explo.plot(mycountsbio_final,
            plottype = "boxplot",
@@ -462,7 +461,7 @@ explo.plot(mycountsbio_final,
 dev.off()
 
 #Low counts 
-cat("Low counts final plot\n")
+cat("Low counts final plot")
 png("lowcountsFinal.png")
 explo.plot(mycountsbio_final,
            plottype = "barplot",
@@ -470,14 +469,14 @@ explo.plot(mycountsbio_final,
 dev.off()
 
 #Plot for Mvalues
-cat("M values final plot\n")
+cat("M values final plot")
 png("MvaluesFinal.png")
 explo.plot(mycd_lessbias,
            samples=sample(1:ncol(counts),10))
 dev.off()
 
 #calculate final GC bias
-cat("GC content final\n")
+cat("GC content final")
 myGCcontent_final <- dat(noiseqData_final,
                          k = 0, 
                          type = "GCbias", 
@@ -488,23 +487,23 @@ myGCcontent_final <- dat(noiseqData_final,
 
 cat("GC bias final plot")
 png("GCbiasFinal.png",width=1000)
-explo.plot(myGCcontent_final,    ## <- es aqui
+explo.plot(myGCcontent_final, 
            samples = 1:12, 
            toplot = "global")
 dev.off()
 
 #calculate final length bias
-cat("Length bias final\n")
-mylenBiasFinal <- dat(noiseqData_final, 
+cat("Length bias final")
+mylenBias <- dat(noiseqData_final, 
                  k = 0, 
                  type = "lengthbias", 
                  factor = NULL,
                  norm=T)
 
 #Plot final length bias
-cat("Length bias final plot\n")
+cat("Length bias final plot")
 png("lengthbiasFinal.png",width=1000)
-explo.plot(mylenBiasFinal, samples = 1:12)
+explo.plot(mylenBias, samples = 1:12)
 dev.off()
 
 #Final count matrix --- ---
@@ -523,18 +522,15 @@ dim(final_metadata)
 
 #Finally, save counts table --- ---
 cat("Save counts table\n")
-saveRDS(final_counts, 
-        file = "ROSMAP_RNAseq_filteredQC_counts_DLPFC.rds")
+saveRDS(final_counts, file = "ROSMAP_RNAseq_filteredQC_counts_DLPFC.rds")
 
 #Save filtered metadata --- ---
 cat("Save filtered metadata\n")
-vroom::vroom_write(final_metadata,
-                   file ="RNA_seq_metadata_filteredQC_DLPFC.txt")
+vroom::vroom_write(final_metadata, file ="RNA_seq_metadata_filteredQC_DLPFC.txt")
 
 #Save annotation --- --- 
 cat("Save annotation file\n")
-vroom::vroom_write(myannot, 
-                   file ="RNA_seq_filteredQC_annotation_DLPFC.txt")
+vroom::vroom_write(myannot, file ="RNA_seq_filteredQC_annotation_DLPFC.txt")
 
 cat("--- Quality control finished ---")
 #END
