@@ -3,4 +3,3 @@ DLPFC	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/data/ROSMAP_RNAse
 FC	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/data/ROSMAP_RNAseq_rawcounts_FC.rds	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/metadata/RNA_seq_metadata_FC.txt
 HCN	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/data/ROSMAP_RNAseq_rawcounts_HCN.rds	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/metadata/RNA_seq_metadata_HCN.txt
 PCC	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/data/ROSMAP_RNAseq_rawcounts_PCC.rds	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/metadata/RNA_seq_metadata_PCC.txt
-TC	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/data/ROSMAP_RNAseq_rawcounts_TC.rds	/home/paulinapg/redesROSMAP/RNAseq_QC_NOISeq/QC_nextflow/metadata/RNA_seq_metadata_TC.txt
