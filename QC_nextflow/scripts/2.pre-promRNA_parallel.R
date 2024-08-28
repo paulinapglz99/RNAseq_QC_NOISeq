@@ -344,9 +344,10 @@ cat("-----SOLVE BIASES------")
 #Determine which genes have sufficiently large counts to be retained in a statistical analysis.
 
 cat("Filter low count genes by CPM\n")
+x<- setNames(factors$specimenID, factors$ceradsc)
 
 countMatrixFiltered <- filtered.data(counts,
-                                     factor = "ceradsc",       #using all factors
+                                     factor = x,       #using dx factor
                                      norm = F,            #counts are not normalized 
                                      method = 1,          #Method 1 (CPM) removes those features that have an average expression per condition less than cpm value and a coefficient of variation per condition higher than cv.cutoff (in percentage) in all the conditions
                                      cpm = 1,             #Cutoff for the counts per million value
